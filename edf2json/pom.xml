@@ -7,6 +7,7 @@
     <groupId>edf2json</groupId>
     <artifactId>edf2json</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,11 +29,22 @@
     </dependencies>
 
     <build>
+        <finalName>biosignals-edf2json</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
