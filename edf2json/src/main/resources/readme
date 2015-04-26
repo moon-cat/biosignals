@@ -1,0 +1,5 @@
+generate json schema from example
+http://jsonschema.net/#/
+
+generate classes from json schema
+http://www.jsonschema2pojo.org/

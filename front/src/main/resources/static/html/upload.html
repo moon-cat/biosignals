@@ -11,20 +11,67 @@
         <div class="body">
 
             <div class="upload">
-                <div class="row">
-                    <div class="key">Name</div>
-                    <div class="value"><input type="text" id="name"/></div>
+                <div class="table">
+                    <div class="row">
+                        <div class="key"><div class="title">Upload your file</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Name:</div>
+                        <div class="value"><input type="text" id="name"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Data file:</div>
+                        <div class="value"><input type="file" id="file"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="key"></div>
+                        <div class="value"><button ng-click="upload()">Upload</button></div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="key">Data file</div>
-                    <div class="value"><input type="file" id="file"/></div>
-                </div>
-                <div class="row">
-                    <div class="key"></div>
-                    <div class="value"><button ng-click="upload()">Upload</button></div>
+            </div>
+
+            <div class="success" ng-show="edf">
+                File has been upload successfully.
+                <a href="/visualize">View data here.</a>
+            </div>
+
+            <div class="properties" ng-show="edf">
+                <div class="table">
+                    <div class="row">
+                        <div class="key"><div class="title">Metadata from file</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Patient identification:</div>
+                        <div class="value">{{edf.edfMetadata.localPatientIdentification}}</div>
+                        <div class="key">Number of data records: </div>
+                        <div class="value">{{edf.edfMetadata.noOfDataRecords}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Recording identification: </div>
+                        <div class="value">{{edf.edfMetadata.localRecordingIdentification}}</div>
+                        <div class="key">Duration of data record (seconds): </div>
+                        <div class="value">{{edf.edfMetadata.dataRecordDurationInSeconds}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Number of signals: </div>
+                        <div class="value">{{edf.edfMetadata.noOfSignalsInDataRecord}}</div>
+                        <div class="key">Start time: </div>
+                        <div class="value">{{edf.edfMetadata.startDate}} {{edf.edfMetadata.startTime}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Signals: </div>
+                        <div class="value">
+                            <span ng-repeat="signal in edf.edfMetadata.signalMetadata">
+                                {{signal.label}} <br/>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
+
 
         </div>
 

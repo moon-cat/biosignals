@@ -1,0 +1,45 @@
+{
+    "edfMetadata":
+    {
+        "version": "0",
+        "localPatientIdentification": "123456",
+        "localRecordingIdentification":"1234567",
+        "startDate":"15.04.11",
+        "startTime":"12.12.12",
+        "headerLengthInBytes":123456,
+        "noOfDataRecords":123,
+        "dataRecordDurationInSeconds":1234,
+        "noOfSignalsInDataRecord":5,
+        "signalMetadata":
+            [
+                {
+                    "label":"TEST",
+                    "transducerType":"TEST",
+                    "physicalDimension":"uV",
+                    "physicalMin":123.0,
+                    "physicalMax":344.0,
+                    "digitalMin":123.0,
+                    "digitalMax":444.0,
+                    "prefiltering":"HP:0.1Hz LP:75Hz",
+                    "noOfSamplesInDataRecord":5
+                }
+            ]
+    },
+    "edfData" :
+    {
+        "dataRecordId": "1",
+        "edfDataRecord" :
+            [
+                {
+                    "signalId":"1",
+                    "edfSignalDataRecord":
+                        [
+                            1,2,3,4,5,6,7,8,9,10
+                        ]
+                }
+            ]
+    }
+}
+
+
+

@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://biosignals.sth.kth.org/v0",
+  "type": "object",
+  "properties": {
+    "edfMetadata": {
+      "id": "http://biosignals.sth.kth.org/v0/edfMetadata",
+      "type": "object",
+      "properties": {
+        "version": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/version",
+          "type": "string"
+        },
+        "localPatientIdentification": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/localPatientIdentification",
+          "type": "string"
+        },
+        "localRecordingIdentification": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/localRecordingIdentification",
+          "type": "string"
+        },
+        "startDate": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/startDate",
+          "type": "string"
+        },
+        "startTime": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/startTime",
+          "type": "string"
+        },
+        "headerLengthInBytes": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/headerLengthInBytes",
+          "type": "integer"
+        },
+        "noOfDataRecords": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/noOfDataRecords",
+          "type": "integer"
+        },
+        "dataRecordDurationInSeconds": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/dataRecordDurationInSeconds",
+          "type": "integer"
+        },
+        "noOfSignalsInDataRecord": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/noOfSignalsInDataRecord",
+          "type": "integer"
+        },
+        "signalMetadata": {
+          "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata",
+          "type": "array",
+          "items": {
+            "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0",
+            "type": "object",
+            "properties": {
+              "label": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/label",
+                "type": "string"
+              },
+              "transducerType": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/transducerType",
+                "type": "string"
+              },
+              "physicalDimension": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/physicalDimension",
+                "type": "string"
+              },
+              "physicalMin": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/physicalMin",
+                "type": "integer"
+              },
+              "physicalMax": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/physicalMax",
+                "type": "integer"
+              },
+              "digitalMin": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/digitalMin",
+                "type": "integer"
+              },
+              "digitalMax": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/digitalMax",
+                "type": "integer"
+              },
+              "prefiltering": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/prefiltering",
+                "type": "string"
+              },
+              "noOfSamplesInDataRecord": {
+                "id": "http://biosignals.sth.kth.org/v0/edfMetadata/signalMetadata/0/noOfSamplesInDataRecord",
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "version",
+        "localPatientIdentification",
+        "localRecordingIdentification",
+        "startDate",
+        "startTime",
+        "headerLengthInBytes",
+        "noOfDataRecords",
+        "dataRecordDurationInSeconds",
+        "noOfSignalsInDataRecord",
+        "signalMetadata"
+      ]
+    },
+    "edfData": {
+      "id": "http://biosignals.sth.kth.org/v0/edfData",
+      "type": "object",
+      "properties": {
+        "dataRecordId": {
+          "id": "http://biosignals.sth.kth.org/v0/edfData/dataRecordId",
+          "type": "string"
+        },
+        "edfDataRecord": {
+          "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord",
+          "type": "array",
+          "items": {
+            "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0",
+            "type": "object",
+            "properties": {
+              "signalId": {
+                "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/signalId",
+                "type": "string"
+              },
+              "edfSignalDataRecord": {
+                "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord",
+                "type": "array",
+                "items": [
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/0",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/1",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/2",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/3",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/4",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/5",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/6",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/7",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/8",
+                    "type": "integer"
+                  },
+                  {
+                    "id": "http://biosignals.sth.kth.org/v0/edfData/edfDataRecord/0/edfSignalDataRecord/9",
+                    "type": "integer"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "edfMetadata",
+    "edfData"
+  ]
+}

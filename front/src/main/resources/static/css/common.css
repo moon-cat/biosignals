@@ -27,36 +27,41 @@ body {
     margin: 0px;
     padding: 30px;
     font-size: 10pt;
-    width: 100%;
-    height: 100%;
+
 }
 
 .upload {
+
+}
+
+.table {
     display: table;
 }
 
-.upload .row {
+.table .row {
     display: table-row;
+    font-size: 8pt;
 }
 
-.upload .row .key {
+.table .row .key {
     display: table-cell;
     padding: 5px 10px;
 }
 
-.upload .row .value {
+.table .row .value {
     display: table-cell;
     padding: 5px 10px;
+    font-size: 8pt;
 }
 
-.upload input {
+.table input {
     color: #2466A8;
     font-size: 8pt;
     height: 25px;
     width: 200px;
 }
 
-.upload button {
+.table button {
     float: right;
     background: #2466A8;
     padding: 2px 15px;
@@ -65,5 +70,22 @@ body {
     border: none;
 }
 
+.title {
+    font-size: 10pt;
+    padding: 15px 0px;
+    font-weight: bold;
+}
 
+.success {
+    font-size: 8pt;
+    border: 1px solid #43A538;
+    color: #43A538;
+    background: #E5FFE2;
+    padding: 10px;
+    margin: 10px;
+}
+
+.success a {
+    color: #43A538;
+}
 

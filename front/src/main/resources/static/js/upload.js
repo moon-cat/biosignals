@@ -11,9 +11,8 @@ app.controller('UploadController', function($scope, $http) {
             result = $http.post("/upload/data", fd, {
                 headers: {'Content-Type': undefined}
             }).success(function(data, status, headers, config){
-                alert("success");
-                //$scope.edf = data;
-                //alert(angular.toJson($scope.edf.edfData.edfDataRecord[0].edfSignalDataRecord));
+                $scope.edf = data;
+                //alert(angular.toJson($scope.edf.edfProperties));
             }).error(function(data, status, headers, config){
                 alert("failed " + status + " " + data);
             });
