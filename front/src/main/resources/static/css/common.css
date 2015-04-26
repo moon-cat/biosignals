@@ -31,3 +31,39 @@ body {
     height: 100%;
 }
 
+.upload {
+    display: table;
+}
+
+.upload .row {
+    display: table-row;
+}
+
+.upload .row .key {
+    display: table-cell;
+    padding: 5px 10px;
+}
+
+.upload .row .value {
+    display: table-cell;
+    padding: 5px 10px;
+}
+
+.upload input {
+    color: #2466A8;
+    font-size: 8pt;
+    height: 25px;
+    width: 200px;
+}
+
+.upload button {
+    float: right;
+    background: #2466A8;
+    padding: 2px 15px;
+    color: #DEEFFF;
+    font-size: 8pt;
+    border: none;
+}
+
+
+

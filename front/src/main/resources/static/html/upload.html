@@ -9,7 +9,23 @@
         </div>
 
         <div class="body">
-            Here you will be able to upload data
+
+            <div class="upload">
+                <div class="row">
+                    <div class="key">Name</div>
+                    <div class="value"><input type="text" id="name"/></div>
+                </div>
+                <div class="row">
+                    <div class="key">Data file</div>
+                    <div class="value"><input type="file" id="file"/></div>
+                </div>
+                <div class="row">
+                    <div class="key"></div>
+                    <div class="value"><button ng-click="upload()">Upload</button></div>
+                </div>
+
+            </div>
+
         </div>
 
         <script type="text/javascript" src="/js/upload.js"></script>

@@ -4,12 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
-@EnableAutoConfiguration
 public class FrontController {
 
     @RequestMapping("/home")
@@ -17,10 +17,11 @@ public class FrontController {
         return "home";
     }
 
-    @RequestMapping("/upload")
+    @RequestMapping(value = "/home/upload", method = RequestMethod.GET)
     String upload() throws Exception{
         return "upload";
     }
+
 
     @RequestMapping("/manage")
     String manage() throws Exception{
@@ -37,7 +38,5 @@ public class FrontController {
         return "analyze";
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(FrontController.class, args);
-    }
+
 }
