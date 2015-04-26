@@ -54,12 +54,13 @@ body {
     font-size: 8pt;
 }
 
-.table input {
+.table input.text {
     color: #2466A8;
     font-size: 8pt;
     height: 25px;
     width: 200px;
 }
+
 
 .table button {
     float: right;
@@ -87,5 +88,9 @@ body {
 
 .success a {
     color: #43A538;
+}
+
+.select-signals {
+    padding: 3px 5px;
 }
 

@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="/css/common.css"/>
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
     </head>
     <body ng-app="biosignals-app" ng-controller="VisualizeController">
         <div>
@@ -9,7 +10,78 @@
         </div>
 
         <div class="body">
-            Here you will be able to view selected data
+
+            <div ng-init="loadMetadata()" ng-show="edfMetadata">
+
+                <div class="table">
+                    <div class="row">
+                        <div class="key"><div class="title">Metadata</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Patient identification:</div>
+                        <div class="value">{{edfMetadata.localPatientIdentification}}</div>
+                        <div class="key">Number of data records: </div>
+                        <div class="value">{{edfMetadata.noOfDataRecords}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Recording identification: </div>
+                        <div class="value">{{edfMetadata.localRecordingIdentification}}</div>
+                        <div class="key">Duration of data record (seconds): </div>
+                        <div class="value">{{edfMetadata.dataRecordDurationInSeconds}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Number of signals: </div>
+                        <div class="value">{{edfMetadata.noOfSignalsInDataRecord}}</div>
+                        <div class="key">Start time: </div>
+                        <div class="value">{{edfMetadata.startDate}} {{edfMetadata.startTime}}</div>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <div class="row">
+                        <div class="key"><div class="title">Select signals</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
+                        <span ng-repeat="signal in edfMetadata.signalMetadata">
+                            <span class="select-signals">
+                                <input type="checkbox" id="$index" class="signal-checkbox"/> {{signal.label}}
+                            </span>
+                            <br ng-show="($index + 1) % 10 == 0"/>
+                        </span>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row">
+                        <div class="value"><button ng-click="selectSignals()" style="float:left;">Select signals</button></div>
+                    </div>
+                </div>
+
+                <div class="table" ng-show="selectedSignals">
+                    <div class="row">
+                        <div class="key"><div class="title">Current record: {{recordNo}}</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
+                        <div class="value" ng-show="recordNo>0"><button ng-click="recordNo=recordNo-1;visualize()"  style="float:left;">Previous record</button></div>
+                        <div class="value" ng-show="recordNo<edfMetadata.noOfDataRecords-1"><button ng-click="recordNo=recordNo+1;visualize()" style="float:left;">Next record</button></div>
+                    </div>
+                </div>
+
+                <div class="table" ng-repeat="signal in selectedSignals">
+                    <div class="row">
+                        <div class="key"><div class="title">{{edfMetadata.signalMetadata[signal].label}}</div></div>
+                    </div>
+                    <div class="row">
+                        <canvas id="chart{{signal}}" width="1200" height="100"></canvas>
+                    </div>
+                </div>
+
+
+
+            </div>
         </div>
 
         <script type="text/javascript" src="/js/visualize.js"></script>

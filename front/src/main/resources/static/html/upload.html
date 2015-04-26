@@ -18,7 +18,7 @@
                     </div>
                     <div class="row">
                         <div class="key">Name:</div>
-                        <div class="value"><input type="text" id="name"/></div>
+                        <div class="value"><input type="text" id="name" class="text"/></div>
                     </div>
                     <div class="row">
                         <div class="key">Data file:</div>
@@ -33,10 +33,10 @@
 
             <div class="success" ng-show="edf">
                 File has been upload successfully.
-                <a href="/visualize">View data here.</a>
+                <a href="/home/visualize">View data here.</a>
             </div>
 
-            <div class="properties" ng-show="edf">
+            <div ng-show="edf">
                 <div class="table">
                     <div class="row">
                         <div class="key"><div class="title">Metadata from file</div></div>

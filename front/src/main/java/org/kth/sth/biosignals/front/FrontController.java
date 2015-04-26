@@ -1,5 +1,6 @@
 package org.kth.sth.biosignals.front;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Controller
 public class FrontController {
 
+    @Autowired
+    private  SessionData sessionData;
+
     @RequestMapping("/home")
     String home() throws Exception{
         return "home";
@@ -23,12 +27,12 @@ public class FrontController {
     }
 
 
-    @RequestMapping("/manage")
+    @RequestMapping("/home/manage")
     String manage() throws Exception{
         return "manage";
     }
 
-    @RequestMapping("/visualize")
+    @RequestMapping("/home/visualize")
     String visualize() throws Exception{
         return "visualize";
     }
