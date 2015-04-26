@@ -46,7 +46,7 @@ public class Edf2JsonConverter {
         edfMetadata.setHeaderLengthInBytes(readInt(edfFile, 8));
         skip(edfFile, 44);
         edfMetadata.setNoOfDataRecords(readInt(edfFile, 8));
-        edfMetadata.setDataRecordDurationInSeconds(readInt(edfFile, 8));
+        edfMetadata.setDataRecordDurationInSeconds(readDouble(edfFile, 8));
         edfMetadata.setNoOfSignalsInDataRecord(readInt(edfFile, 4));
 
         readSignalMetadata(edfFile, edfMetadata, edfMetadata.getNoOfSignalsInDataRecord());

@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
+import java.util.UUID;
 
 @RestController
 public class UploadController {
 
     @Autowired
     private  SessionData sessionData;
+
+    @Autowired
+    InMemoryRepository repository;
 
     @RequestMapping(value = "/upload/data", method = RequestMethod.POST)
     Edf upload(@RequestParam("file") MultipartFile file,
@@ -22,13 +26,16 @@ public class UploadController {
         Edf edf = new Edf2JsonConverter().readEdf(file.getInputStream());
         EdfProperties edfProperties = new EdfProperties();
 
+        edfProperties.setUuid(UUID.randomUUID().toString());
         edfProperties.setName(name);
         edfProperties.setOriginalFilename(file.getOriginalFilename());
         edfProperties.setCreatedDate(new Date().toString());
         edfProperties.setModifiedDate(new Date().toString());
+        edfProperties.setMetadataIdentification(edf.getEdfMetadata().getLocalRecordingIdentification());
         edf.setEdfProperties(edfProperties);
 
         sessionData.setEdf(edf);
+        repository.save(edf);
 
         return edf;
     }

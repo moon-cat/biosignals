@@ -60,11 +60,18 @@
                         <div class="key">Start time: </div>
                         <div class="value">{{edf.edfMetadata.startDate}} {{edf.edfMetadata.startTime}}</div>
                     </div>
+                </div>
+
+                <div class="table">
                     <div class="row">
-                        <div class="key">Signals: </div>
+                        <div class="key"><div class="title">Signals in the file</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
                         <div class="value">
                             <span ng-repeat="signal in edf.edfMetadata.signalMetadata">
-                                {{signal.label}} <br/>
+                                {{signal.label}} &nbsp;&nbsp;&nbsp;&nbsp;
+                                <br ng-show="($index + 1) % 10 == 0"/>
                             </span>
                         </div>
                     </div>

@@ -8,8 +8,27 @@
             <div ng-include="'/html/header.html'"></div>
         </div>
 
-        <div class="body">
-           Here you will be able to view and delete data
+        <div class="body" ng-init="list()">
+            <div class="table" ng-show="edfProperties.length > 0">
+                <div class="row header">
+                    <div class="key">UUID</div>
+                    <div class="key">Name</div>
+                    <div class="key">Recording identification from file</div>
+                    <div class="key">Upload date</div>
+                    <div class="key">Visualize</div>
+                    <div class="key">Analyze</div>
+                    <div class="key">Remove</div>
+                </div>
+                <div class="row bordered" ng-repeat="edfProperty in edfProperties">
+                    <div class="key">{{edfProperty.uuid}}</div>
+                    <div class="key">{{edfProperty.name}}</div>
+                    <div class="key">{{edfProperty.metadataIdentification}}</div>
+                    <div class="key">{{edfProperty.createdDate}}</div>
+                    <div class="key"><a href="/home/visualize?uuid={{edfProperty.uuid}}">Visualize</a></div>
+                    <div class="key"><a href="/home/analyze?uuid={{edfProperty.uuid}}">Analyze</a></div>
+                    <div class="key"><a ng-click="remove(edfProperty.uuid)" href="">Remove</a></div>
+                </div>
+            </div>
         </div>
 
         <script type="text/javascript" src="/js/manage.js"></script>

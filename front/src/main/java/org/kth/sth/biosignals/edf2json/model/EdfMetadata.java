@@ -40,7 +40,7 @@ public class EdfMetadata {
     @JsonProperty("noOfDataRecords")
     private Integer noOfDataRecords;
     @JsonProperty("dataRecordDurationInSeconds")
-    private Integer dataRecordDurationInSeconds;
+    private Double dataRecordDurationInSeconds;
     @JsonProperty("noOfSignalsInDataRecord")
     private Integer noOfSignalsInDataRecord;
     @JsonProperty("signalMetadata")
@@ -194,7 +194,7 @@ public class EdfMetadata {
      *     The dataRecordDurationInSeconds
      */
     @JsonProperty("dataRecordDurationInSeconds")
-    public Integer getDataRecordDurationInSeconds() {
+    public Double getDataRecordDurationInSeconds() {
         return dataRecordDurationInSeconds;
     }
 
@@ -204,7 +204,7 @@ public class EdfMetadata {
      *     The dataRecordDurationInSeconds
      */
     @JsonProperty("dataRecordDurationInSeconds")
-    public void setDataRecordDurationInSeconds(Integer dataRecordDurationInSeconds) {
+    public void setDataRecordDurationInSeconds(Double dataRecordDurationInSeconds) {
         this.dataRecordDurationInSeconds = dataRecordDurationInSeconds;
     }
 

@@ -23,6 +23,9 @@ public class EdfProperties {
     @JsonProperty("name")
     private String name;
 
+    @JsonProperty("metadataIdentification")
+    private String metadataIdentification;
+
     @JsonProperty("originalFilename")
     private String originalFilename;
 
@@ -50,6 +53,16 @@ public class EdfProperties {
     @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
+    }
+
+    @JsonProperty("metadataIdentification")
+    public String getMetadataIdentification() {
+        return metadataIdentification;
+    }
+
+    @JsonProperty("metadataIdentification")
+    public void setMetadataIdentification(String metadataIdentification) {
+        this.metadataIdentification = metadataIdentification;
     }
 
     @JsonProperty("originalFilename")

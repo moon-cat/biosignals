@@ -17,7 +17,7 @@ public class VisualizeController {
 
     @RequestMapping("/visualize/metadata")
     public EdfMetadata getMetadata() {
-        return sessionData.getEdf().getEdfMetadata();
+        return sessionData.getEdf() != null ? sessionData.getEdf().getEdfMetadata() : null;
     }
 
     @RequestMapping("/visualize/data")

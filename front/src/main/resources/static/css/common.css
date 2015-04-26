@@ -48,6 +48,23 @@ body {
     padding: 5px 10px;
 }
 
+.table .row .header {
+    display: table-cell;
+    padding: 5px 10px;
+    background: #2466A8;
+    color: #DEEFFF;
+}
+
+.table .bordered {
+    border-left: 1px solid #2466A8;
+    border-right: 1px solid #2466A8;
+    border-bottom: 1px solid #2466A8;
+}
+
+.table a{
+    color: #2466A8;
+}
+
 .table .row .value {
     display: table-cell;
     padding: 5px 10px;
