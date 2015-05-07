@@ -1,12 +1,11 @@
 package org.kth.sth.biosignals.front;
 
+
+import org.kth.sth.biosignals.storage.RedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
 public class FrontController {
@@ -15,7 +14,7 @@ public class FrontController {
     private  SessionData sessionData;
 
     @Autowired
-    private InMemoryRepository repository;
+    private RedisRepository repository;
 
     @RequestMapping("/home")
     String home() throws Exception{

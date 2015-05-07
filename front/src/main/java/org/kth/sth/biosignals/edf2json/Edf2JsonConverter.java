@@ -132,11 +132,23 @@ public class Edf2JsonConverter {
     }
 
     private Integer readInt(InputStream edfFile, int length)  throws Exception{
-        return new Integer(readString(edfFile, length).trim());
+        String value = readString(edfFile, length).trim();
+        try {
+            return new Integer(value);
+        } catch (NumberFormatException e) {
+            System.err.println("Not integer: " + value);
+        }
+        return 0;
     }
 
     private Double readDouble(InputStream edfFile, int length)  throws Exception{
-        return new Double(readString(edfFile, length).trim());
+        String value = readString(edfFile, length).trim();
+        try {
+            return new Double(value);
+        } catch (NumberFormatException e) {
+            System.err.println("Not double: " + value);
+        }
+        return 0.0;
     }
 
 

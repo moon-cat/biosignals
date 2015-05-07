@@ -3,6 +3,8 @@ package org.kth.sth.biosignals.front;
 import org.kth.sth.biosignals.edf2json.Edf2JsonConverter;
 import org.kth.sth.biosignals.edf2json.model.Edf;
 import org.kth.sth.biosignals.edf2json.model.EdfProperties;
+
+import org.kth.sth.biosignals.storage.RedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,7 +19,7 @@ public class UploadController {
     private  SessionData sessionData;
 
     @Autowired
-    InMemoryRepository repository;
+    RedisRepository repository;
 
     @RequestMapping(value = "/upload/data", method = RequestMethod.POST)
     Edf upload(@RequestParam("file") MultipartFile file,

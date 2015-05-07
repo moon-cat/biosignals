@@ -1,0 +1,119 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building biosignals-front 0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ biosignals-front ---
+[INFO] Deleting /Users/radzieuskaya/master-thesis/application/biosignals/front/target
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:1.3.0.BUILD-SNAPSHOT:run (default-cli) > test-compile @ biosignals-front >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ biosignals-front ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 12 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ biosignals-front ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to /Users/radzieuskaya/master-thesis/application/biosignals/front/target/classes
+[WARNING] /Users/radzieuskaya/master-thesis/application/biosignals/front/src/main/java/org/kth/sth/biosignals/storage/MongoDbRepository.java: /Users/radzieuskaya/master-thesis/application/biosignals/front/src/main/java/org/kth/sth/biosignals/storage/MongoDbRepository.java uses unchecked or unsafe operations.
+[WARNING] /Users/radzieuskaya/master-thesis/application/biosignals/front/src/main/java/org/kth/sth/biosignals/storage/MongoDbRepository.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ biosignals-front ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/radzieuskaya/master-thesis/application/biosignals/front/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ biosignals-front ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot-maven-plugin:1.3.0.BUILD-SNAPSHOT:run (default-cli) < test-compile @ biosignals-front <<<
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.3.0.BUILD-SNAPSHOT:run (default-cli) @ biosignals-front ---
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::  (v1.3.0.BUILD-SNAPSHOT)
+
+2015-05-03 12:04:36.672  INFO 6934 --- [lication.main()] o.k.s.b.BiosignalsSpringBootApplication  : Starting BiosignalsSpringBootApplication on h145n2-s-oev-d2.ias.bredband.telia.com with PID 6934 (/Users/radzieuskaya/master-thesis/application/biosignals/front/target/classes started by radzieuskaya in /Users/radzieuskaya/master-thesis/application/biosignals/front)
+2015-05-03 12:04:36.758  INFO 6934 --- [lication.main()] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f4bf57: startup date [Sun May 03 12:04:36 CEST 2015]; root of context hierarchy
+2015-05-03 12:04:38.006  INFO 6934 --- [lication.main()] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2015-05-03 12:04:39.658  INFO 6934 --- [lication.main()] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2015-05-03 12:04:40.630  INFO 6934 --- [lication.main()] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-05-03 12:04:40.632  INFO 6934 --- [lication.main()] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.21
+2015-05-03 12:04:40.841  INFO 6934 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-05-03 12:04:40.842  INFO 6934 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4092 ms
+2015-05-03 12:04:42.036  INFO 6934 --- [ost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2015-05-03 12:04:42.045  INFO 6934 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+2015-05-03 12:04:42.045  INFO 6934 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2015-05-03 12:04:42.226  INFO 6934 --- [ost-startStop-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [113] milliseconds.
+2015-05-03 12:04:42.536  INFO 6934 --- [lication.main()] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[ec2-52-16-128-228.eu-west-1.compute.amazonaws.com:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2015-05-03 12:04:42.696  INFO 6934 --- [onaws.com:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ec2-52-16-128-228.eu-west-1.compute.amazonaws.com:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.connection.SocketStream.open(SocketStream.java:63)
+	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:114)
+	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:127)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:50)
+	at com.mongodb.connection.SocketStream.open(SocketStream.java:58)
+	... 3 common frames omitted
+
+2015-05-03 12:04:43.013  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f4bf57: startup date [Sun May 03 12:04:36 CEST 2015]; root of context hierarchy
+2015-05-03 12:04:43.140  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home/upload],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto java.lang.String org.kth.sth.biosignals.front.FrontController.upload() throws java.lang.Exception
+2015-05-03 12:04:43.141  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home/manage],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto java.lang.String org.kth.sth.biosignals.front.FrontController.manage() throws java.lang.Exception
+2015-05-03 12:04:43.141  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home/analyze],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto java.lang.String org.kth.sth.biosignals.front.FrontController.analyze(java.lang.String) throws java.lang.Exception
+2015-05-03 12:04:43.142  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto java.lang.String org.kth.sth.biosignals.front.FrontController.home() throws java.lang.Exception
+2015-05-03 12:04:43.142  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home/visualize],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto java.lang.String org.kth.sth.biosignals.front.FrontController.visualize(java.lang.String) throws java.lang.Exception
+2015-05-03 12:04:43.143  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manage/remove],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void org.kth.sth.biosignals.front.ManageController.remove(java.lang.String)
+2015-05-03 12:04:43.144  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manage/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<org.kth.sth.biosignals.edf2json.model.EdfProperties> org.kth.sth.biosignals.front.ManageController.list()
+2015-05-03 12:04:43.145  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/data],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto org.kth.sth.biosignals.edf2json.model.Edf org.kth.sth.biosignals.front.UploadController.upload(org.springframework.web.multipart.MultipartFile,java.lang.String) throws java.lang.Exception
+2015-05-03 12:04:43.146  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/visualize/metadata],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.kth.sth.biosignals.edf2json.model.EdfMetadata org.kth.sth.biosignals.front.VisualizeController.getMetadata()
+2015-05-03 12:04:43.147  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/visualize/data],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<java.lang.Object> org.kth.sth.biosignals.front.VisualizeController.getData(java.lang.Integer,java.lang.Integer)
+2015-05-03 12:04:43.154  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2015-05-03 12:04:43.155  INFO 6934 --- [lication.main()] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],methods=[],params=[],headers=[],consumes=[],produces=[text/html],custom=[]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest)
+2015-05-03 12:04:43.229  INFO 6934 --- [lication.main()] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2015-05-03 12:04:43.229  INFO 6934 --- [lication.main()] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2015-05-03 12:04:43.344  INFO 6934 --- [lication.main()] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2015-05-03 12:04:43.441  INFO 6934 --- [lication.main()] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2015-05-03 12:04:43.447  INFO 6934 --- [localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.connection.SocketStream.open(SocketStream.java:63)
+	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:114)
+	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:127)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:50)
+	at com.mongodb.connection.SocketStream.open(SocketStream.java:58)
+	... 3 common frames omitted
+
+2015-05-03 12:04:43.643  INFO 6934 --- [lication.main()] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2015-05-03 12:04:43.789  INFO 6934 --- [lication.main()] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2015-05-03 12:04:43.793  INFO 6934 --- [lication.main()] o.k.s.b.BiosignalsSpringBootApplication  : Started BiosignalsSpringBootApplication in 7.582 seconds (JVM running for 19.974)
+2015-05-03 12:04:45.681  INFO 6934 --- [       Thread-1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f4bf57: startup date [Sun May 03 12:04:36 CEST 2015]; root of context hierarchy
+2015-05-03 12:04:45.683  INFO 6934 --- [       Thread-1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.050 s
+[INFO] Finished at: 2015-05-03T12:04:45+02:00
+[INFO] Final Memory: 43M/251M
+[INFO] ------------------------------------------------------------------------

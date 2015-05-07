@@ -1,4 +1,4 @@
-package org.kth.sth.biosignals.front;
+package org.kth.sth.biosignals;
 
 
 import org.springframework.boot.SpringApplication;
