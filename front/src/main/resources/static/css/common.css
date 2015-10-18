@@ -27,7 +27,13 @@ body {
     margin: 0px;
     padding: 30px;
     font-size: 10pt;
+}
 
+.signal-title {
+    color: #2466A8;
+    margin: 0px;
+    font-size: 8pt;
+    position: absolute;
 }
 
 .upload {
@@ -36,6 +42,8 @@ body {
 
 .table {
     display: table;
+    color: #2466A8;
+    vertical-align: top;
 }
 
 .table .row {
@@ -86,12 +94,15 @@ body {
     color: #DEEFFF;
     font-size: 8pt;
     border: none;
+    width:100px;
 }
 
 .title {
     font-size: 10pt;
     padding: 15px 0px;
     font-weight: bold;
+    color: #2466A8;
+
 }
 
 .success {

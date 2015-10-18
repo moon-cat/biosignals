@@ -24,8 +24,8 @@
                     <div class="key">{{edfProperty.name}}</div>
                     <div class="key">{{edfProperty.metadataIdentification}}</div>
                     <div class="key">{{edfProperty.createdDate}}</div>
-                    <div class="key"><a href="/home/visualize?uuid={{edfProperty.uuid}}">Visualize</a></div>
-                    <div class="key"><a href="/home/analyze?uuid={{edfProperty.uuid}}">Analyze</a></div>
+                    <div class="key"><a ng-click="visualize(edfProperty.uuid)" href="">Visualize</a></div>
+                    <div class="key"><a ng-click="analyze(edfProperty.uuid)" href="">Analyze</a></div>
                     <div class="key"><a ng-click="remove(edfProperty.uuid)" href="">Remove</a></div>
                 </div>
             </div>
