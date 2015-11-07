@@ -4,15 +4,14 @@ package org.kth.sth.biosignals.edf2json.model;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
-    "version",
+
+        "uuid",
+        "version",
     "localPatientIdentification",
     "localRecordingIdentification",
     "startDate",
@@ -24,6 +23,10 @@ import java.util.Map;
     "signalMetadata"
 })
 public class EdfMetadata {
+
+
+    @JsonProperty("edfProperties")
+    private EdfProperties edfProperties;
 
     @JsonProperty("version")
     private String version;
@@ -44,9 +47,17 @@ public class EdfMetadata {
     @JsonProperty("noOfSignalsInDataRecord")
     private Integer noOfSignalsInDataRecord;
     @JsonProperty("signalMetadata")
-    private List<SignalMetadata> signalMetadata = new ArrayList<SignalMetadata>();
+    private List<SignalMetadata> signalMetadata = new LinkedList<SignalMetadata>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    public EdfProperties getEdfProperties() {
+        return edfProperties;
+    }
+
+    public void setEdfProperties(EdfProperties edfProperties) {
+        this.edfProperties = edfProperties;
+    }
 
     /**
      * 

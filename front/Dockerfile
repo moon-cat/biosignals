@@ -1,6 +1,6 @@
-FROM dockerfile/java:oracle-java8
+FROM java:7-jre
 
-EXPOSE 8081
+EXPOSE 8080
 
 COPY biosignals-front.jar /usr/share/biosignals/front/
-CMD java -jar /usr/share/biosignals/front/biosignals-front.jar
+CMD java -Xmx3G -jar /usr/share/biosignals/front/biosignals-front.jar

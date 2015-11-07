@@ -1,0 +1,7 @@
+{
+   	"AWSEBDockerrunVersion": "1",
+	"containerDefinitions": 
+	[{
+      		"memory": 3012
+	}]
+ }

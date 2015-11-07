@@ -15,6 +15,11 @@ app.controller('ManageController', function($scope, $http, $location) {
         analyze($http, $scope, uuid);
     };
 
+    $scope.filter = function(uuid){
+        filter($http, $scope, $location, uuid);
+    };
+
+
     $scope.visualize = function(uuid){
         visualize($http, $scope, $location, uuid);
     };
@@ -41,6 +46,19 @@ function visualize($http, $scope, $location, uuid) {
         params: {uuid: uuid}}).
     success(function(data, status, headers, config) {
         window.location.href = "/html/visualize.html";
+    }).
+    error(function(data, status, headers, config) {
+          alert("failed " + status + " " + data);
+    });
+};
+
+function filter($http, $scope, $location, uuid) {
+    $http({
+        url: '/select',
+        method: 'POST',
+        params: {uuid: uuid}}).
+    success(function(data, status, headers, config) {
+        window.location.href = "/html/filter.html";
     }).
     error(function(data, status, headers, config) {
           alert("failed " + status + " " + data);

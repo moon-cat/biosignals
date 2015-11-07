@@ -31,12 +31,12 @@
                 </div>
             </div>
 
-            <div class="success" ng-show="edf">
+            <div class="success" ng-show="edfMetadata">
                 File has been upload successfully.
                 <a href="/html/visualize.html">View data here.</a>
             </div>
 
-            <div ng-show="edf">
+            <div ng-show="edfMetadata">
                 <div class="table">
                     <div class="row">
                         <div class="key"><div class="title">Metadata from file</div></div>
@@ -44,21 +44,21 @@
                     </div>
                     <div class="row">
                         <div class="key">Patient identification:</div>
-                        <div class="value">{{edf.edfMetadata.localPatientIdentification}}</div>
+                        <div class="value">{{edfMetadata.localPatientIdentification}}</div>
                         <div class="key">Number of data records: </div>
-                        <div class="value">{{edf.edfMetadata.noOfDataRecords}}</div>
+                        <div class="value">{{edfMetadata.noOfDataRecords}}</div>
                     </div>
                     <div class="row">
                         <div class="key">Recording identification: </div>
-                        <div class="value">{{edf.edfMetadata.localRecordingIdentification}}</div>
+                        <div class="value">{{edfMetadata.localRecordingIdentification}}</div>
                         <div class="key">Duration of data record (seconds): </div>
-                        <div class="value">{{edf.edfMetadata.dataRecordDurationInSeconds}}</div>
+                        <div class="value">{{edfMetadata.dataRecordDurationInSeconds}}</div>
                     </div>
                     <div class="row">
                         <div class="key">Number of signals: </div>
-                        <div class="value">{{edf.edfMetadata.noOfSignalsInDataRecord}}</div>
+                        <div class="value">{{edfMetadata.noOfSignalsInDataRecord}}</div>
                         <div class="key">Start time: </div>
-                        <div class="value">{{edf.edfMetadata.startDate}} {{edf.edfMetadata.startTime}}</div>
+                        <div class="value">{{edfMetadata.startDate}} {{edfMetadata.startTime}}</div>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row">
                         <div class="value">
-                            <span ng-repeat="signal in edf.edfMetadata.signalMetadata">
+                            <span ng-repeat="signal in edfMetadata.signalMetadata">
                                 {{signal.label}} &nbsp;&nbsp;&nbsp;&nbsp;
                                 <br ng-show="($index + 1) % 10 == 0"/>
                             </span>

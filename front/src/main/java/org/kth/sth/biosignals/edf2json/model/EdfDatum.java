@@ -4,10 +4,7 @@ package org.kth.sth.biosignals.edf2json.model;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
@@ -20,7 +17,7 @@ public class EdfDatum {
     @JsonProperty("dataRecordId")
     private String dataRecordId;
     @JsonProperty("edfDataRecord")
-    private List<EdfDataRecord> edfDataRecord = new ArrayList<EdfDataRecord>();
+    private List<EdfDataRecord> edfDataRecord;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 

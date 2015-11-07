@@ -1,7 +1,10 @@
 package org.kth.sth.biosignals.front;
 
 import org.apache.log4j.Logger;
-import org.kth.sth.biosignals.storage.EdfRepository;
+import org.kth.sth.biosignals.edf2json.model.Edf;
+import org.kth.sth.biosignals.edf2json.model.EdfData;
+import org.kth.sth.biosignals.edf2json.model.EdfMetadata;
+import org.kth.sth.biosignals.storage.DataAccessHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,26 +18,27 @@ public class StateController {
 
     private final static Logger log = Logger.getLogger(StateController.class);
 
-
     @Autowired
     private  SessionData sessionData;
 
     @Autowired
-    private EdfRepository repository;
-
+    private DataAccessHelper dataAccessHelper;
 
     @RequestMapping(value = "/select", method = RequestMethod.POST)
     public void visualize(@RequestParam(value = "uuid", required = false) String uuid) throws Exception{
 
-
         if (uuid != null) {
-            sessionData.setEdf(repository.get(uuid));
+            EdfMetadata edfMetadata = dataAccessHelper.getMetadata(uuid);
+            EdfData edfData = dataAccessHelper.loadRecord(uuid, 0, edfMetadata);
+
+            Edf edf = new Edf();
+            edf.setEdfMetadata(edfMetadata);
+            edf.setEdfData(edfData);
+            sessionData.setEdf(edf);
         }
 
-        if (sessionData != null) {
-            log.info(String.format("Selected edf with uuid=%s", sessionData.getEdf().getEdfProperties().getUuid()));
+        log.info(String.format("Selected edf with uuid=%s", uuid));
 
-        }
     }
 
 

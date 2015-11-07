@@ -16,7 +16,7 @@
                     <div class="key">Recording identification from file</div>
                     <div class="key">Upload date</div>
                     <div class="key">Visualize</div>
-                    <div class="key">Analyze</div>
+                    <div class="key">Filter</div>
                     <div class="key">Remove</div>
                 </div>
                 <div class="row bordered" ng-repeat="edfProperty in edfProperties">
@@ -25,7 +25,7 @@
                     <div class="key">{{edfProperty.metadataIdentification}}</div>
                     <div class="key">{{edfProperty.createdDate}}</div>
                     <div class="key"><a ng-click="visualize(edfProperty.uuid)" href="">Visualize</a></div>
-                    <div class="key"><a ng-click="analyze(edfProperty.uuid)" href="">Analyze</a></div>
+                    <div class="key"><a ng-click="filter(edfProperty.uuid)" href="">Filter</a></div>
                     <div class="key"><a ng-click="remove(edfProperty.uuid)" href="">Remove</a></div>
                 </div>
             </div>

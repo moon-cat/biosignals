@@ -1,10 +1,8 @@
 package org.kth.sth.biosignals.front;
 
-
 import org.apache.log4j.Logger;
 import org.kth.sth.biosignals.edf2json.model.EdfData;
 import org.kth.sth.biosignals.edf2json.model.EdfDataRecord;
-import org.kth.sth.biosignals.edf2json.model.EdfMetadata;
 import org.kth.sth.biosignals.storage.DataAccessHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -12,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 @RestController
 @Scope("session")
-public class VisualizeController {
+public class FilterController {
 
     private final static Logger log = Logger.getLogger(VisualizeController.class);
 
@@ -27,32 +26,53 @@ public class VisualizeController {
     @Autowired
     private DataAccessHelper dataAccessHelper;
 
-    @RequestMapping("/visualize/metadata")
-    public EdfMetadata getMetadata() {
-        if (sessionData.getEdf() == null){
-            log.warn("No edf found in session");
-        }
-        return sessionData.getEdf() != null ? sessionData.getEdf().getEdfMetadata() : null;
-    }
-
-    @RequestMapping("/visualize/data")
+    @RequestMapping("/filter/data")
     public List<Object> getData(@RequestParam("recordNo") Integer recordNo, @RequestParam("signalNo") Integer signalNo,
-                                @RequestParam("zoom") Double zoom, @RequestParam("positionInRecord") Integer positionInRecord)
-    throws Exception {
+                                @RequestParam("zoom") Double zoom, @RequestParam("positionInRecord") Integer positionInRecord,
+                                @RequestParam("filterType") FilterType filterType) throws Exception{
+        List<Object> result = null;
+
         if (zoom == 1){
-            return getDataRecord(recordNo).getEdfSignalDataRecords().get(signalNo).getData();
+            result = getDataRecord(recordNo).getEdfSignalDataRecords().get(signalNo).getData();
         } else if (zoom < 1) {
             List<Object> data = getDataRecord(recordNo).getEdfSignalDataRecords().get(signalNo).getData();
             int length = (int) (data.size() * zoom);
-            return data.subList(positionInRecord * length, (positionInRecord + 1) * length);
+            result = data.subList(positionInRecord * length, (positionInRecord + 1) * length);
         } else {
             List<Object> allData = new LinkedList<Object>();
             for (int i = 0; i < zoom; i++){
                 List<Object> data = getDataRecord(recordNo + i).getEdfSignalDataRecords().get(signalNo).getData();
                 allData.addAll(data);
             }
-            return allData;
+            result = allData;
         }
+        return filter(result, filterType);
+    }
+
+    private List<Object> filter(List<Object> input, FilterType filterType) {
+        switch (filterType){
+            case lowpass: return filterLowPass(input);
+            case highpass: return filterHighPass(input);
+            default: return input;
+        }
+    }
+
+    private List<Object> filterHighPass(List<Object> input) {
+        List<Object> result = new ArrayList<Object>(input.size());
+        result.add(input.get(0));
+        for (int i = 1; i < input.size(); i++){
+            result.add(i, ((Integer) (result.get(i - 1)) +  (Integer) (input.get(i)) - (Integer) (input.get(i - 1))) / 2);
+        }
+        return result;
+    }
+
+    private List<Object> filterLowPass(List<Object> input) {
+        List<Object> result = new ArrayList<Object>(input.size());
+        result.add(input.get(0));
+        for (int i = 1; i < input.size(); i++){
+            result.add(i, ((Integer) (result.get(i - 1)) +  (Integer) (input.get(i))) / 2);
+        }
+       return result;
     }
 
     private EdfDataRecord getDataRecord(Integer recordNo) throws Exception{

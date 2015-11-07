@@ -15,6 +15,10 @@
             <source>Dockerfile</source>
             <outputDirectory>/</outputDirectory>
         </file>
+	<file>
+            <source>Dockerrun.aws.json</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
         <file>
             <source>.ebextensions/nginx.config</source>
             <outputDirectory>/.ebextensions/nginx.config</outputDirectory>

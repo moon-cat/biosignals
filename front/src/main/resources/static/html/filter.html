@@ -1,0 +1,138 @@
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" href="/css/common.css"/>
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    </head>
+    <body ng-app="biosignals-app" ng-controller="FilterController">
+        <div>
+            <div ng-include="'/html/header.html'"></div>
+        </div>
+
+        <div class="body">
+
+            <div ng-init="loadMetadata()" ng-show="edfMetadata">
+
+                <div class="table">
+                    <div class="row">
+                        <div class="key"><div class="title">Metadata</div></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Patient identification:</div>
+                        <div class="value">{{edfMetadata.localPatientIdentification}}</div>
+                        <div class="key">Number of data records: </div>
+                        <div class="value">{{edfMetadata.noOfDataRecords}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Recording identification: </div>
+                        <div class="value">{{edfMetadata.localRecordingIdentification}}</div>
+                        <div class="key">Duration of data record (seconds): </div>
+                        <div class="value">{{edfMetadata.dataRecordDurationInSeconds}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="key">Number of signals: </div>
+                        <div class="value">{{edfMetadata.noOfSignalsInDataRecord}}</div>
+                        <div class="key">Start time: </div>
+                        <div class="value">{{edfMetadata.startDate}} {{edfMetadata.startTime}}</div>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <table>
+                    <tr>
+                        <td style="vertical-align: top; border-top:solid 1px #2466A8; border-right:solid 1px #2466A8">
+                            <div class="table">
+                                <div class="row">
+                                    <div class="key"><div class="title">Signals</div></div>
+                                    <div class="value"></div>
+                                </div>
+                                <div class="row">
+                                    <select id="selectedSignal">
+                                        <option ng-repeat="i in signalIndexes" value="{{i}}">{{edfMetadata.signalMetadata[i].label}}</option>
+                                    </select>
+
+                                </div>
+                                <div class="row">
+                                    <div class="key"><div class="title">Filter</div></div>
+                                    <div class="value"></div>
+                                </div>
+                                <div class="row">
+                                    <select id="selectedFilter">
+                                        <option value="lowpass">LowPass</option>
+                                        <option value="lowpass">HighPass</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="row">
+                                    <div class="key"><button ng-click="selectSignal();selectFilter();visualize();">Visualize</button></div>
+                                    <div class="value"></div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td style="vertical-align: top; border-top:solid 1px #2466A8">
+                            <div class="table">
+                                <div class="row">
+                                    <div class="key"><div class="title">Browse</div></div>
+                                    <div class="value"></div>
+                                </div>
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+
+                                <div class="row">
+                                    <div class="value"><button ng-click="zoomIn();visualize()">Zoom in</button></div>
+                                    <div class="value"><button ng-click="zoomOut();visualize()">Zoom out</button></div>
+                                    <div class="key">Zoom: {{zoom}}; </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="key"><button ng-click="previous();visualize()">&lt; Previous</button></div>
+                                    <div class="key"><button ng-click="playBack()">&lt;&lt; Play</button></div>
+                                    <div class="key"><button ng-click="stop()">Stop</button></div>
+                                    <div class="key"><button ng-click="playForth()">Play &gt;&gt;</button></div>
+                                    <div class="key"><button ng-click="next();visualize()">Next &gt;</button></div>
+                                    <div class="key">
+                                        Go to record
+                                        <input type="text" id="recordNoInput" ng-keypress="goToRecord($event)" style="width:40px"/>
+                                    </div>
+                                    <div class="key">Record: {{recordNo+1}} of {{edfMetadata.noOfDataRecords}}; Position in record: {{positionInRecord+1}} of {{zoom>1?1:(1/zoom)}};</div>
+
+                                </div>
+
+                                <div class="row"><div class="title">&nbsp;</div></div>
+
+                            </div>
+                            <div class="table">
+                                <div class="row">
+                                    <div class="key">
+                                        <span class="signal-title">{{edfMetadata.signalMetadata[selectedSignal].label}} - Original</span>
+                                        <canvas id="chart1" width="800" height="150" class="display: inline;"></canvas>
+                                    </div></div>
+                                <div class="row">
+                                    <div class="key">
+                                        <span class="signal-title">{{edfMetadata.signalMetadata[selectedSignal].label}} - Filtered</span>
+                                        <canvas id="chart2" width="800" height="150" class="display: inline;"></canvas>
+                                    </div></div>
+                            </div>
+
+
+                        </td>
+                    </tr>
+
+                </table>
+
+
+
+
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/filter.js"></script>
+    </body>
+</html>

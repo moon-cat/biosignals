@@ -2,9 +2,7 @@ package org.kth.sth.biosignals.front;
 
 import org.kth.sth.biosignals.edf2json.model.EdfProperties;
 
-import org.kth.sth.biosignals.storage.EdfRepository;
-import org.kth.sth.biosignals.storage.InMemoryRepository;
-import org.kth.sth.biosignals.storage.RedisRepository;
+import org.kth.sth.biosignals.storage.DataAccessHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,19 +19,19 @@ public class ManageController {
     private SessionData sessionData;
 
     @Autowired
-    private EdfRepository repository;
+    private DataAccessHelper dataAccessHelper;
 
 
     @RequestMapping("/manage/list")
     public List<EdfProperties> list() throws Exception{
-        return repository.list();
+        return dataAccessHelper.list();
     }
 
     @RequestMapping("/manage/remove")
     public void remove(@RequestParam("uuid") String uuid) throws Exception {
-        repository.remove(uuid);
+        dataAccessHelper.remove(uuid);
 
-        if (sessionData.getEdf() != null && uuid.equals(sessionData.getEdf().getEdfProperties().getUuid())){
+        if (sessionData.getEdf() != null && uuid.equals(sessionData.getEdf().getEdfMetadata().getEdfProperties().getUuid())){
             sessionData.setEdf(null);
         }
 

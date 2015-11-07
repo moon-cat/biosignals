@@ -23,9 +23,6 @@ public class Edf {
     private EdfMetadata edfMetadata;
     @JsonProperty("edfData")
     private EdfData edfData;
-    @JsonProperty("edfProperties")
-    private EdfProperties edfProperties;
-
 
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
@@ -68,16 +65,6 @@ public class Edf {
     @JsonProperty("edfData")
     public void setEdfData(EdfData edfData) {
         this.edfData = edfData;
-    }
-
-    @JsonProperty("edfProperties")
-    public EdfProperties getEdfProperties() {
-        return edfProperties;
-    }
-
-    @JsonProperty("edfProperties")
-    public void setEdfProperties(EdfProperties edfProperties) {
-        this.edfProperties = edfProperties;
     }
 
     @JsonAnyGetter
